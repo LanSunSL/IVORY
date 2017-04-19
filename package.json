@@ -1,0 +1,21 @@
+{
+  "name": "ivory",
+  "version": "4.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanthvallampati/IVORY.git"
+  },
+  "author": "Lakshmikanth Vallampati",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kanthvallampati/IVORY/issues"
+  },
+  "homepage": "http://ivoryui.work",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-sass": "^3.1.0",
+    "run-sequence": "^1.2.2"
+  }
+}
