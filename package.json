@@ -14,7 +14,7 @@
   "homepage": "http://ivoryui.work",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-concat-css": "^2.3.0",
+    "gulp-connect": "^5.0.0",
     "gulp-sass": "^3.1.0",
     "run-sequence": "^1.2.2"
   }
