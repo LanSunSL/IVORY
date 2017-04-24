@@ -1,0 +1,125 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* Typography */
+h2 {
+  font: 24px/32px 'Merriweather'; }
+
+h6 {
+  margin: 10px 0;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 300; }
+
+p {
+  margin: 10px 0;
+  font: 16px/24px 'Questrial', sans-serif; }
+
+/* Alignments */
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.text-justify {
+  text-align: justify; }
+
+/* Demo styles */
+.main-header {
+  position: relative;
+  width: 100%;
+  min-height: 60px;
+  background-color: #708090; }
+
+.container {
+  position: relative;
+  width: 100%;
+  padding: 30px 0; }
+  .container .inner-container {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto; }
+
+.main-footer {
+  position: relative;
+  width: 100%;
+  min-height: 60px;
+  border-top: 1px solid #ccc; }
+
+.docs {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; }
+  .docs .docs-nav {
+    width: 200px;
+    border-right: 1px solid #ccc; }
+    .docs .docs-nav li {
+      border-bottom: 1px solid #ccc; }
+      .docs .docs-nav li:last-child {
+        border-bottom: none; }
+      .docs .docs-nav li a {
+        display: block;
+        padding: 5px 15px;
+        text-decoration: none;
+        color: #708090;
+        font: 16px/36px 'Questrial', sans-serif; }
+  .docs .docs-read {
+    width: calc(100% - 200px);
+    padding: 30px; }
