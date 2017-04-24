@@ -1,0 +1,111 @@
+$tooltip-size: 5px;
+$tooltip-color: #ffffff;
+$tooltip-background: #181818;
+$tooltip-content-radius: 3px;
+
+@mixin centered-tooltip-generator($dir) {
+  .#{$dir}{
+    $opp: map-get($opp-directions,$dir);
+
+    //Tooltip body
+    $distance: 2 * $tooltip-size; 
+    #{$opp}: calc(100% + #{$distance});
+    @if($dir=="top" or $dir=="bottom") {
+      left: 50%;
+      transform: translateX(-50%);
+    } @else {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    //Tooltip Arrow
+    &:before {
+      @if($dir=="top" or $dir=="bottom") {
+        #{$opp}: 0;
+        margin-#{$opp}: -$tooltip-size;
+        left: 50%;
+        transform: translateX(-50%);
+      } @else {
+        #{$opp}: -$tooltip-size;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      border-#{$dir}: $tooltip-size solid $tooltip-background;
+      border-#{$opp}: none;
+    }
+  }
+}
+
+@mixin corner-tooltip-generator($dirA, $dirB) {
+  .#{$dirA}-#{$dirB} {
+    $oppA: map-get($opp-directions,$dirA);
+    $oppB: map-get($opp-directions,$dirB);
+        
+    //Tooltip body
+    $distance: 2 * $tooltip-size;
+    #{$oppA}: calc(100% + #{$distance});
+    #{$oppB}: calc(100% - #{$distance});
+    border-#{$oppA}-#{$oppB}-radius: 0;
+        
+    //Tooltip Arrow
+    &:before {
+      #{$oppA}: -2 * $tooltip-size;
+      #{$oppB}: 0;
+      border-#{$dirA}: $tooltip-size solid $tooltip-background;
+      border-#{$oppA}: $tooltip-size solid transparent;
+      border-#{$oppB}: $tooltip-size solid $tooltip-background;
+      border-#{$dirB}: $tooltip-size solid transparent;
+    }
+  }
+}
+
+.tooltip-hook {
+  position: relative;
+  color: #2bacef;
+  cursor: pointer;
+
+  .tooltip {
+    visibility: hidden;
+    position: absolute;
+    display: inline-block;
+    padding: 10px;
+    width: 240px;
+    background-color: $tooltip-background;
+    color: $tooltip-color;
+    z-index: 99;
+    @include border-radius($tooltip-content-radius);
+
+    &.tooltip-sm {
+        width: 120px;
+    }
+
+    &.tooltip-md {
+        width: 240px;
+    }
+
+    &.tooltip-lg {
+        width: 360px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      border: $tooltip-size solid transparent;
+    }
+  }
+  &:hover {
+    .tooltip {
+      visibility: visible;
+    }
+  }
+
+  @include centered-tooltip-generator(top);
+  @include centered-tooltip-generator(right);
+  @include centered-tooltip-generator(bottom);
+  @include centered-tooltip-generator(left);
+  @include corner-tooltip-generator(top,right);
+  @include corner-tooltip-generator(top,left);
+  @include corner-tooltip-generator(bottom,right);
+  @include corner-tooltip-generator(bottom,left);
+}
